@@ -14,7 +14,11 @@ public class AssetUtilTest {
                 new Asset(Asset.AssetType.STOCK, 3000),
                 new Asset(Asset.AssetType.STOCK, 4000)
         );
-        Assert.assertEquals(10000, AssetUtil.totalAssetValues(assets));
+        Assert.assertEquals(10000, AssetUtil.totalAssetValues(assets, asset -> true));
+        Assert.assertEquals(3000, AssetUtil.totalAssetValues(assets,
+                asset -> asset.getType() == Asset.AssetType.BOND));
+        Assert.assertEquals(7000, AssetUtil.totalAssetValues(assets,
+                asset -> asset.getType() == Asset.AssetType.STOCK));
      }
 
 }
