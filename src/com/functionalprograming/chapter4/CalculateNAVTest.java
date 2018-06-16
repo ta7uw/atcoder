@@ -10,9 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.math.BigDecimal;
-import com.functionalprograming.chapter4.CalculateNAV.*;
 
-import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class CalculateNAVTest {
