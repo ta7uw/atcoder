@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aee94932-a62f-42ff-90f0-9803aba2dd1a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/functionalprograming/chapter4/AssetUtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functional-Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Functional-Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/functionalprograming/chapter4/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/functionalprograming/chapter4/Asset.java" afterDir="false" />
-    </list>
+    <list default="true" id="aee94932-a62f-42ff-90f0-9803aba2dd1a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -162,13 +157,6 @@
             </path>
             <path>
               <item name="Functional-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Functional-Java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="functionalprograming" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Functional-Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -279,7 +267,7 @@
       <option name="presentableId" value="Default" />
       <updated>1529122579964</updated>
       <workItem from="1529122584760" duration="261000" />
-      <workItem from="1529124309344" duration="4844000" />
+      <workItem from="1529124309344" duration="5328000" />
     </task>
     <servers />
   </component>
@@ -308,13 +296,15 @@
     <history-entry file="AssetUtilTest - 2018.06.16 at 16h 07m 01s.xml">
       <configuration name="AssetUtilTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AssetUtilTest - 2018.06.16 at 16h 07m 45s.xml">
+      <configuration name="AssetUtilTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5105000" />
+    <option name="totallyTimeSpent" value="5589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="189" y="63" width="891" height="597" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -327,10 +317,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.368" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.256" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.256" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25559482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25559482" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
