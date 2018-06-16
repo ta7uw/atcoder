@@ -7,9 +7,9 @@ public class Asset {
     private final AssetType type;
     private final int value;
 
-    public Asset(final AssetType assetType, final int assetvalue) {
+    public Asset(final AssetType assetType, final int assetValue) {
         type = assetType;
-        value = assetvalue;
+        value = assetValue;
     }
 
     public int getValue() {
