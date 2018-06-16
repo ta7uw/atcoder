@@ -7,7 +7,8 @@ import java.util.List;
 
 
 public class AssetUtilTest {
-    @Test public void totalAssetValuesTest() {
+    @Test
+    public void totalAssetValuesTest() {
         final List<Asset> assets = Arrays.asList(
                 new Asset(Asset.AssetType.BOND, 1000),
                 new Asset(Asset.AssetType.BOND, 2000),
