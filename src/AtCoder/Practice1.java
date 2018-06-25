@@ -12,5 +12,6 @@ public class Practice1 {
         int sum = Integer.valueOf(firstNum) + Integer.valueOf(secondNum) + Integer.valueOf(thirdNum);
         System.out.println(sum +" "+ str);
 
-    }
+        }
+
 }
