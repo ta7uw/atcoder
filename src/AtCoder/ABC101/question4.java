@@ -1,4 +1,4 @@
-package AtCoder.AtCoderBeginnerContest101;
+package AtCoder.ABC101;
 
 
 import java.util.LinkedHashSet;
@@ -13,7 +13,7 @@ public class question4 {
             for (long m =1; m <=10e15; m*=10){
                 boolean sunukeCheckFlag = true;
                 for(int i = 1; sunukeCheckFlag; i++){
-                    // 一の位を９で固定して探索　１０の位を９で固定して探索　百のくらいまでを９で固定して探索　..
+                    // 一の位を９で固定して探索　１０の位を９で固定して探索　百のくらいまでを９で固定して探索　...
                     long x = i * m + m - 1;
                     long y = (i + 1) * m + m - 1;
                     if (x * Sn(y) <=  y * Sn(x)){

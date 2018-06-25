@@ -1,4 +1,4 @@
-package AtCoder.AtCoderBeginnerContest101;
+package AtCoder.ABC101;
 
 import java.util.Scanner;
 
