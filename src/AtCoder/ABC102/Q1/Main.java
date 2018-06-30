@@ -8,6 +8,7 @@ public class Main {
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
         out.flush();
+        sc.close();
     }
 }
 
