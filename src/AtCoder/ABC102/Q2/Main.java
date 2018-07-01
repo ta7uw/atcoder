@@ -14,6 +14,20 @@ public class Main {
     }
     static class TaskB{
         void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            long[] lLine = longLine(sc, N);
+
+            long max=0;
+            long min=Integer.MAX_VALUE;
+            for (long l: lLine){
+                if (l>=max){
+                    max = l;
+                }
+                if (l<=min){
+                    min = l;
+                }
+            }
+            out.println(Math.abs(max - min));
         }
     }
     static int nint(Scanner sc){

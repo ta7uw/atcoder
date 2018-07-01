@@ -14,6 +14,12 @@ public class Main {
     }
     static class TaskA{
         void solve(Scanner sc, PrintWriter out){
+            long n = nlong(sc);
+            if (n%2==0){
+                out.println(n);
+            }else {
+                out.println(n*2);
+            }
         }
     }
 

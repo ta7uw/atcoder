@@ -1,6 +1,7 @@
 package AtCoder.ABC102.Q3;
 
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,12 +9,32 @@ public class Main {
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
         TaskC task = new TaskC();
+
         task.solve(sc, out);
         out.flush();
         sc.close();
     }
     static class TaskC{
         void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            long[] lLine = longLine(sc, N);
+            long[] AminusN = new long[N];
+            for (int i = 0; i < N; i++) {
+                AminusN[i] = lLine[i] - (i+1);
+            }
+            Arrays.sort(AminusN);
+            long b;
+            if (N%2==0){
+                b = AminusN[N/2 -1];
+            }else{
+                b = AminusN[(N+1)/2 -1];
+            }
+            long result = 0;
+            for (long a: AminusN){
+                result += Math.abs(a - b);
+            }
+            out.println(result);
+
         }
     }
     static int nint(Scanner sc){
