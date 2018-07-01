@@ -4,11 +4,17 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+   public static void main(String[] args){
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
+        TaskB task = new TaskB();
+        task.solve(sc, out);
         out.flush();
         sc.close();
+    }
+    static class TaskB{
+        void solve(Scanner sc, PrintWriter out){
+        }
     }
     static int nint(Scanner sc){
         return Integer.parseInt(sc.next());

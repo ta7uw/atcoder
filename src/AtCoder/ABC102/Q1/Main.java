@@ -7,12 +7,12 @@ public class Main {
     public static void main(String[] args){
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
-        Task task = new Task();
+        TaskA task = new TaskA();
         task.solve(sc, out);
         out.flush();
         sc.close();
     }
-    static class Task{
+    static class TaskA{
         void solve(Scanner sc, PrintWriter out){
         }
     }
