@@ -1,7 +1,10 @@
 package AtCoder.SPC.Q4;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args){
@@ -14,6 +17,26 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            double startYen = Math.pow(10,15);
+            int n = nint(sc);
+            int m = nint(sc);
+            int s = nint(sc);
+            int t = nint(sc);
+            List<List<Long>> fares = new ArrayList<>();
+
+            for(int i=0; i<m; i++){
+                List<Long> fare= new ArrayList<>();
+                fare.add(nlong(sc));
+                fare.add(nlong(sc));
+                fare.add(nlong(sc));
+                fare.add(nlong(sc));
+                fares.add(fare);
+            }
+            int maxYear = n-1;
+            boolean changeToSunuke = false;
+            for (int year=0; year<=maxYear; year++){
+
+            }
         }
     }
 

@@ -1,7 +1,5 @@
 package AtCoder.SPC.Q1;
 
-import javafx.concurrent.Task;
-
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -11,12 +9,20 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Task task = new Task();
         task.solve(sc, out);
-
         out.flush();
         sc.close();
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            long a = nlong(sc);
+            long b = nlong(sc);
+            if (a + b == 15){
+                out.println("+");
+            }else if(a*b == 15){
+                out.println("*");
+            }else{
+                out.println("x");
+            }
         }
     }
 
