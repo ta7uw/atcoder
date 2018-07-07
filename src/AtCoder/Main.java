@@ -7,8 +7,14 @@ public class Main {
     public static void main(String[] args){
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
+        Task task = new Task();
+        task.solve(sc, out);
         out.flush();
         sc.close();
+    }
+    static class Task{
+        public void solve(Scanner sc, PrintWriter out){
+        }
     }
 
     static int nint(Scanner sc){
