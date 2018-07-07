@@ -17,7 +17,6 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-
         }
     }
 
