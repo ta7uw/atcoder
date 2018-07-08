@@ -17,24 +17,45 @@ public class Main {
     }
     private static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            double startYen = Math.pow(10,15);
+
             int n = nint(sc);
             int m = nint(sc);
             int s = nint(sc);
             int t = nint(sc);
-            Dijkstra Di = new Dijkstra();
-            Di.execute(sc, n, m, s-1, t-1);
+            long[][] inputList= new long[m][4];
+            for (int i=0; i<m;i++){
+                inputList[i][0] = nlong(sc);
+                inputList[i][1] = nlong(sc);
+                inputList[i][2] = nlong(sc);
+                inputList[i][3] = nlong(sc);
+            }
+            for (int year = 0; year<n; year++){
+                long maxSunuke = 0;
+                for (int j = year; j < n ; j++){
+                    boolean isChangedSunuke = false;
+                    long startYen = 1000000000000000L;
+                    Dijkstra Di = new Dijkstra();
+                    startYen -=Di.execute(n, m, s-1, j,
+                            isChangedSunuke, inputList);
+                    isChangedSunuke = true;
+                    long resultSunuke = startYen - Di.execute(n, m, t-1, j,
+                            isChangedSunuke, inputList);
+                    if(maxSunuke <= resultSunuke){
+                        maxSunuke = resultSunuke;
+                    }
+                }
+                out.println(maxSunuke);
 
-
-
+            }
         }
     }
 
     public static class Dijkstra{
-        public void execute(Scanner sc, int numOfCity, int numOfRoute,
-                            int startCity, int dstCity){
+        public long execute(int numOfCity, int numOfRoute,
+                            int startCity, int dstCity, boolean isChangedSunuke,
+                              long[][] inputList){
             // 都市と道路の接続関係を示すマップ
-            int[][] map = new int[numOfCity][numOfCity];
+            long[][] map = new long[numOfCity][numOfCity];
             //　マップの初期化
             for(int i=0; i<numOfCity; i++){
                 for(int j=0; j< numOfCity; j++){
@@ -43,31 +64,32 @@ public class Main {
             }
             //　道路状況の読み込み
             for (int i=0; i<numOfRoute; i++){
-                int from = nint(sc);
-                int to = nint(sc);
-                int length = nint(sc);
-                map[from-1][to-1] = length;
-                map[to-1][from-1] = length;
+                int from = (int) inputList[i][0]-1 ;
+                int to = (int) inputList[i][1]-1 ;
+                long yen = inputList[i][2];
+                long sunuke =  inputList[i][3];
+                long length =0;
+                if (isChangedSunuke) {
+                    length = sunuke;
+                } else{
+                    length = yen;
+                }
+                map[from][to] =  length;
+                map[to][from] = length;
             }
 
             // 各都市までの最短距離
-            int[] distance = new int[numOfCity];
+            long[] distance = new long[numOfCity];
             dijkstra(map, startCity, distance);
-            if (distance[dstCity]==Integer.MAX_VALUE) {	// 解なし
-                System.out.println("no route");
-            } else {
-                System.out.println("distance="+distance[dstCity]);
-            }
-
+            return distance[dstCity];
         }
-
-        private void dijkstra(int[][] map, int startCity, int[] distance){
+        private void dijkstra(long[][] map, int startCity, long[] distance){
             int numOfCity = distance.length;
             // 最短距離の確定したか
             boolean[] isFixed = new boolean[numOfCity];
 
             for (int i=0; i<numOfCity; i++){
-                distance[i] = Integer.MAX_VALUE;
+                distance[i] = Long.MAX_VALUE;
                 isFixed[i] = false;
             }
 
@@ -79,14 +101,14 @@ public class Main {
                 // 全都市が確定した場合
                 if (marked < 0) return;
                 // 非連結グラフ
-                if (distance[marked] == Integer.MAX_VALUE) return;
+                if (distance[marked] == Long.MAX_VALUE) return;
                 // その都市までの最短距離は確定
                 isFixed[marked] = true;
                 // 隣の都市
                 for (int i=0; i<numOfCity;i++){
                     // 未確定ならば
                     if (map[marked][i] > 0 && !isFixed[i]){
-                        int newDistance = distance[marked] + map[marked][i];
+                        long newDistance = distance[marked] + map[marked][i];
                         //　今までのよりも小さければ、それを覚える
                         if (newDistance < distance[i]) distance[i] = newDistance;
                     }
@@ -94,7 +116,8 @@ public class Main {
             }
         }
 
-        private  int minindex(int[] distance, boolean[] isFixed){
+
+        private  int minindex(long[] distance, boolean[] isFixed){
             int index = 0;
             // 未確定の都市をどれかさがす
             for(;index < isFixed.length; index++){
