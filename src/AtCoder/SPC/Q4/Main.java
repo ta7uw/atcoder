@@ -23,7 +23,9 @@ public class Main {
             int s = nint(sc);
             int t = nint(sc);
             Dijkstra Di = new Dijkstra();
-            Di.execute(sc, n, m, s, t);
+            Di.execute(sc, n, m, s-1, t-1);
+
+
 
         }
     }
@@ -44,8 +46,8 @@ public class Main {
                 int from = nint(sc);
                 int to = nint(sc);
                 int length = nint(sc);
-                map[from][to] = length;
-                map[to][from] = length;
+                map[from-1][to-1] = length;
+                map[to-1][from-1] = length;
             }
 
             // 各都市までの最短距離
@@ -59,7 +61,7 @@ public class Main {
 
         }
 
-        private void dijkstra(int[][] map, int stratCity, int[] distance){
+        private void dijkstra(int[][] map, int startCity, int[] distance){
             int numOfCity = distance.length;
             // 最短距離の確定したか
             boolean[] isFixed = new boolean[numOfCity];
@@ -70,7 +72,7 @@ public class Main {
             }
 
             // 出発点までの距離を０とする
-            distance[0] = 0;
+            distance[startCity] = 0;
             while (true){
                 // 未確定の中で最も近い都市を求める
                 int marked = minindex(distance, isFixed);
