@@ -14,15 +14,22 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            int N = nint(sc);
-            int K = nint(sc);
-            int a = N;
-            int b = N;
+            long N = nlong(sc);
+            long K = nlong(sc);
 
+            if (K==0){
+                out.println(N*N);
+            }else{
+                long count=0;
+                for (long b = K+1; b <= N; b++){
+                    long p = N / b;
+                    long r = N - p * b;
 
-
-
-
+                    count += p * Math.max(0, b - K);
+                    count += Math.max(0, r - K + 1);
+                }
+                out.println(count);
+            }
 
         }
     }
