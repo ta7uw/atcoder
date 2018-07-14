@@ -22,6 +22,15 @@ public class Main {
             int m = nint(sc);
             int s = nint(sc);
             int t = nint(sc);
+            // 都市と道路の接続関係を示すマップ
+            long[][] map = new long[n][n];
+            //　マップの初期化
+            for(int i=0; i<n; i++){
+                for(int j=0; j< n; j++){
+                    map[i][j] = (i==j) ? 0:-1;
+                }
+            }
+
             long[][] inputList= new long[m][4];
             for (int i=0; i<m;i++){
                 inputList[i][0] = nlong(sc);
@@ -35,10 +44,10 @@ public class Main {
                     boolean isChangedSunuke = false;
                     long startYen = 1000000000000000L;
                     Dijkstra Di = new Dijkstra();
-                    startYen -=Di.execute(n, m, s-1, j,
+                    startYen -=Di.execute(map, n, m, s-1, j,
                             isChangedSunuke, inputList);
                     isChangedSunuke = true;
-                    long resultSunuke = startYen - Di.execute(n, m, t-1, j,
+                    long resultSunuke = startYen - Di.execute(map, n, m, t-1, j,
                             isChangedSunuke, inputList);
                     if(maxSunuke <= resultSunuke){
                         maxSunuke = resultSunuke;
@@ -51,17 +60,9 @@ public class Main {
     }
 
     public static class Dijkstra{
-        public long execute(int numOfCity, int numOfRoute,
+        public long execute(long[][] map, int numOfCity, int numOfRoute,
                             int startCity, int dstCity, boolean isChangedSunuke,
                               long[][] inputList){
-            // 都市と道路の接続関係を示すマップ
-            long[][] map = new long[numOfCity][numOfCity];
-            //　マップの初期化
-            for(int i=0; i<numOfCity; i++){
-                for(int j=0; j< numOfCity; j++){
-                    map[i][j] = (i==j) ? 0:-1;
-                }
-            }
             //　道路状況の読み込み
             for (int i=0; i<numOfRoute; i++){
                 int from = (int) inputList[i][0]-1 ;

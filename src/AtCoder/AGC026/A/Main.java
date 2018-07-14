@@ -1,4 +1,5 @@
-package AtCoder.SPC.Q3;
+package AtCoder.AGC026.A;
+
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -14,18 +15,8 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            double n = ndouble(sc);
-            double m = ndouble(sc);
-            long d = nlong(sc);
-            if (d == 0 ){
-                out.println((m-1) / n);
-            }else {
-                out.println(2*(n-d)*(m-1) / Math.pow(n,2));
-            }
-
         }
     }
-
 
     static int nint(Scanner sc){
         return Integer.parseInt(sc.next());
