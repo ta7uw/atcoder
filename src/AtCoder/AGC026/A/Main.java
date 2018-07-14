@@ -15,6 +15,49 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            int[] ai = intLine(sc, N);
+            int left;
+            int right;
+            int rightright ;
+            int changeCount = 0;
+            if (N == 2){
+                if (ai[0] == ai[1]){
+                    out.println(1);
+                }else {
+                    out.println(0);
+                }
+                return;
+            }
+            for (int i=1; i<N-1; i++){
+                right = ai[i+1];
+                if (i ==1) {
+                    left = ai[i-1];
+                    if (left == ai[i] &&  ai[i] != right ) {
+                        changeCount++;
+                    }else if(left != ai[i] &&  ai[i] == right){
+                        rightright = ai[i+2];
+                        if (right == rightright){
+                            i ++;
+                        }
+                        changeCount++;
+                    }else if (left == ai[i] && right==ai[i]){
+                        changeCount++;
+                    }
+                } else if (i == N-2){
+                    if(ai[i] == right ){
+                        changeCount++;
+                    }
+                } else if(ai[i] == right){
+                    rightright = ai[i+2];
+                    if (right == rightright){
+                        i ++;
+                    }
+                    changeCount++;
+                }
+            }
+            out.println(changeCount);
+
         }
     }
 

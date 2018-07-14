@@ -1,7 +1,11 @@
 package AtCoder.AGC026.B;
 
+import jdk.nashorn.api.tree.ArrayLiteralTree;
+
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args){
@@ -14,6 +18,58 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            int T = nint(sc);
+            List<long[]> inputLine = new ArrayList<>();
+            for (int i= 0 ; i < T; i++){
+                long[] line = longLine(sc, 4);
+                inputLine.add(line);
+            }
+
+            for (int i=0; i<T; i++){
+                long A = inputLine.get(i)[0];
+                long B = inputLine.get(i)[1];
+                long C = inputLine.get(i)[2];
+                long D = inputLine.get(i)[3];
+
+                if (A < B){
+                    //out.println("case1");
+                    out.println("No");
+                    continue;
+                }
+
+                if (C >= B && D >=B ){
+                   // out.println("case2");
+                    out.println("Yes");
+                    continue;
+                }
+                long remain = A % B;
+                long div = D / B;
+                long margin = D - B;
+                long result = remain;
+                if (div >=1){
+                    if (margin !=0){
+                        for (long j = 1; result <C+1; j++){
+                            result +=margin;
+                        }
+                    }else{
+                        result = remain;
+                    }
+
+                    if (result >= B){
+                        //out.println("case3");
+                        out.println("Yes");
+                    }else {
+                        if (B==D ){
+                            out.println("Yes");
+                        }else{
+                            out.println("No");
+                        }
+
+                    }
+                }else {
+                    out.println("No");
+                }
+            }
         }
     }
 
