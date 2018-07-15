@@ -1,7 +1,5 @@
 package AtCoder.AGC026.B;
 
-import jdk.nashorn.api.tree.ArrayLiteralTree;
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,7 +22,6 @@ public class Main {
                 long[] line = longLine(sc, 4);
                 inputLine.add(line);
             }
-
             for (int i=0; i<T; i++){
                 long A = inputLine.get(i)[0];
                 long B = inputLine.get(i)[1];
@@ -32,16 +29,22 @@ public class Main {
                 long D = inputLine.get(i)[3];
 
                 if (A < B){
-                    //out.println("case1");
+                    // 初日アウト
+                    out.println("No");
+                    continue;
+                }
+                if(B > D){
+                    // 必ずいつか尽きる
                     out.println("No");
                     continue;
                 }
 
-                if (C >= B && D >=B ){
-                   // out.println("case2");
+                if (C >= B ){
+                    // 危ない状況にならない
                     out.println("Yes");
                     continue;
                 }
+
                 long remain = A % B;
                 long div = D / B;
                 long margin = D - B;
@@ -52,22 +55,22 @@ public class Main {
                             result +=margin;
                         }
                     }else{
-                        result = remain;
+                        if(remain <= C){
+                            out.println("Yes");
+                            continue;
+                        }else {
+                            out.println("No");
+                            continue;
+                        }
                     }
-
                     if (result >= B){
-                        //out.println("case3");
                         out.println("Yes");
                     }else {
-                        if (B==D ){
-                            out.println("Yes");
-                        }else{
-                            out.println("No");
-                        }
 
+                        out.println("No");
                     }
                 }else {
-                    out.println("No");
+                    out.println("Yes");
                 }
             }
         }
