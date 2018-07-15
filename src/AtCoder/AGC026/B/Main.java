@@ -38,44 +38,26 @@ public class Main {
                     out.println("No");
                     continue;
                 }
-
-                if (C >= B ){
+                if (C  >=  B ){
                     // 危ない状況にならない
                     out.println("Yes");
                     continue;
                 }
-
-                long remain = A % B;
-                long div = D / B;
-                long margin = D - B;
-                long result = remain;
-                if (div >=1){
-                    if (margin !=0){
-                        for (long j = 1; result <C+1; j++){
-                            result +=margin;
-                        }
-                    }else{
-                        if(remain <= C){
-                            out.println("Yes");
-                            continue;
-                        }else {
-                            out.println("No");
-                            continue;
-                        }
-                    }
-                    if (result >= B){
-                        out.println("Yes");
-                    }else {
-
-                        out.println("No");
-                    }
+                long gcd = gcd(B, D);
+                if ( B -gcd +  (A % gcd) > C){
+                    out.println("No");
                 }else {
                     out.println("Yes");
                 }
+
             }
         }
     }
 
+    private static long gcd(long a, long b){
+        if (a < b) return gcd(b ,a);
+        return b == 0 ? a : gcd( b, a % b);
+    }
     static int nint(Scanner sc){
         return Integer.parseInt(sc.next());
     }
