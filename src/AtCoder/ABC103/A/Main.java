@@ -1,9 +1,7 @@
-package AtCoder.AGC026.B;
+package AtCoder.ABC103.A;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args){
@@ -16,47 +14,9 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            int T = nint(sc);
-            List<long[]> inputLine = new ArrayList<>();
-            for (int i= 0 ; i < T; i++){
-                long[] line = longLine(sc, 4);
-                inputLine.add(line);
-            }
-            for (int i=0; i<T; i++){
-                long A = inputLine.get(i)[0];
-                long B = inputLine.get(i)[1];
-                long C = inputLine.get(i)[2];
-                long D = inputLine.get(i)[3];
-
-                if (A < B){
-                    // 初日アウト
-                    out.println("No");
-                    continue;
-                }
-                if(B > D){
-                    // 必ずいつか尽きる
-                    out.println("No");
-                    continue;
-                }
-                if (C  >=  B ){
-                    // 危ない状況にならない
-                    out.println("Yes");
-                    continue;
-                }
-                long gcd = gcd(B, D);
-                if ( B -gcd +  (A % gcd) > C){
-                    out.println("No");
-                }else {
-                    out.println("Yes");
-                }
-            }
         }
     }
 
-    private static long gcd(long a, long b){
-        if (a < b) return gcd(b ,a);
-        return b == 0 ? a : gcd( b, a % b);
-    }
     static int nint(Scanner sc){
         return Integer.parseInt(sc.next());
     }
