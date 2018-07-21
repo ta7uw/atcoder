@@ -22,7 +22,6 @@ public class Main {
                result += AList[i] -1;
             }
             out.println(result);
-
         }
     }
     private static long lcm(long a, long b){

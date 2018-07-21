@@ -19,29 +19,14 @@ public class Main {
         public void solve(Scanner sc, PrintWriter out){
             String S = nstr(sc);
             String T = nstr(sc);
-            List<String> SList = new ArrayList<>();
-
-            for(int i = 0; i < S.length(); i++){
-                String x = String.valueOf(S.charAt(i));
-                SList.add(x);
-            }
-            List<String> TList = new ArrayList<>();
-            for(int i = 0; i < T.length(); i++){
-                String x = String.valueOf(T.charAt(i));
-                TList.add(x);
-            }
-
-            for (int i=0; i<SList.size(); i++){
-                String tmp = SList.get(SList.size()-1);
-                SList.remove(SList.size()-1);
-                SList.add(0, tmp);
-                if (SList.equals(TList)){
+            for (int i=0; i<S.length(); i++){
+                S = S.substring(1) + S.charAt(0);
+                if (S.equals(T)){
                     out.println("Yes");
                     return;
                 }
             }
             out.println("No");
-
         }
     }
 
