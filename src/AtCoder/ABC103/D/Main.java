@@ -1,6 +1,8 @@
 package AtCoder.ABC103.D;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +16,21 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            int M = nint(sc);
+            List<Integer[]> list = new ArrayList<>();
+            for (int i=0; i<M; i++){
+                int a = nint(sc);
+                int b = nint(sc);
+                Integer[] ab = new Integer[];
+                ab[0] = a;
+                ab[1] = b;
+                list.add(ab);
+            }
+
         }
+
+
     }
 
     static int nint(Scanner sc){

@@ -15,7 +15,36 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            long[] AList = longLine(sc, N);
+            long lcm = 0;
+//            for (int i=0; i<AList.length; i++){
+//                if (i>=1){
+//                    lcm = lcm(AList[i], lcm);
+//                }else {
+//                    lcm = AList[0];
+//                }
+//            }
+//            long checknum = lcm -1;
+//            long result = 0;
+//            for (int i=0; i<AList.length; i++){
+//               result += checknum % AList[i];
+//            }
+//            out.println(result);
+            long result = 0;
+            for (int i=0; i<AList.length; i++){
+               result += AList[i] -1;
+            }
+            out.println(result);
+
         }
+    }
+    private static long lcm(long a, long b){
+        return a * b /gcd( b, a % b);
+    }
+    private static long gcd(long a, long b){
+        if (a < b) return gcd(b ,a );
+        return b == 0 ? a : gcd( b, a % b);
     }
 
     static int nint(Scanner sc){

@@ -1,6 +1,9 @@
 package AtCoder.ABC103.B;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +17,31 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            String S = nstr(sc);
+            String T = nstr(sc);
+            List<String> SList = new ArrayList<>();
+
+            for(int i = 0; i < S.length(); i++){
+                String x = String.valueOf(S.charAt(i));
+                SList.add(x);
+            }
+            List<String> TList = new ArrayList<>();
+            for(int i = 0; i < T.length(); i++){
+                String x = String.valueOf(T.charAt(i));
+                TList.add(x);
+            }
+
+            for (int i=0; i<SList.size(); i++){
+                String tmp = SList.get(SList.size()-1);
+                SList.remove(SList.size()-1);
+                SList.add(0, tmp);
+                if (SList.equals(TList)){
+                    out.println("Yes");
+                    return;
+                }
+            }
+            out.println("No");
+
         }
     }
 
