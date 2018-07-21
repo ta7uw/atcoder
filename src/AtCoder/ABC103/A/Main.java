@@ -20,21 +20,7 @@ public class Main {
             int[] nint = intLine(sc, 3);
             Arrays.sort(nint);
 
-            int a1 = nint[0];
-            int a2 = nint[1];
-            int a3 = nint[2];
-
-            int a1a2 = Math.abs(a2-a1);
-            int a1a3 = Math.abs(a3-a1);
-
-            if (a1a2 <= a1a3){
-                sum += a1a2 + Math.abs(a2-a3);
-             }else {
-                sum += a1a3 + Math.abs(a2-a3);
-            }
-
-
-            out.println(sum);
+            out.println(nint[2]-nint[0]);
 
         }
     }
