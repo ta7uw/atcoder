@@ -22,7 +22,7 @@ public class Main {
             for (int i=0; i<M; i++){
                 int a = nint(sc);
                 int b = nint(sc);
-                Integer[] ab = new Integer[];
+                Integer[] ab = new Integer[2];
                 ab[0] = a;
                 ab[1] = b;
                 list.add(ab);
