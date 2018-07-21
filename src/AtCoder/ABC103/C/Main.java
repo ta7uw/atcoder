@@ -17,20 +17,6 @@ public class Main {
         public void solve(Scanner sc, PrintWriter out){
             int N = nint(sc);
             long[] AList = longLine(sc, N);
-            long lcm = 0;
-//            for (int i=0; i<AList.length; i++){
-//                if (i>=1){
-//                    lcm = lcm(AList[i], lcm);
-//                }else {
-//                    lcm = AList[0];
-//                }
-//            }
-//            long checknum = lcm -1;
-//            long result = 0;
-//            for (int i=0; i<AList.length; i++){
-//               result += checknum % AList[i];
-//            }
-//            out.println(result);
             long result = 0;
             for (int i=0; i<AList.length; i++){
                result += AList[i] -1;
