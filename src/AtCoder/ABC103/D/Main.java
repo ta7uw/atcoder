@@ -30,7 +30,6 @@ public class Main {
             warList =  warList.stream()
                     .sorted(Comparator.comparing(x -> x[1]))
                     .collect(Collectors.toList());
-
             int removeBridge = 0;
             int result = 0;
             for (int i =0; i<warList.size(); i++){
