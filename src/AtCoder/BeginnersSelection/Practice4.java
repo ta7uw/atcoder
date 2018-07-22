@@ -1,4 +1,4 @@
-package AtCoder;
+package AtCoder.BeginnersSelection;
 
 import java.util.Arrays;
 import java.util.Scanner;
