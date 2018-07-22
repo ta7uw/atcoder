@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args){
@@ -26,9 +27,24 @@ public class Main {
                 Integer[] ab = {a, b};
                 warList.add(ab);
             }
-            warList.stream()
-                    .sorted(Comparator.comparing(x -> x[1]));
+            warList =  warList.stream()
+                    .sorted(Comparator.comparing(x -> x[1]))
+                    .collect(Collectors.toList());
 
+            int removeBridge = 0;
+            int result = 0;
+            for (int i =0; i<warList.size(); i++){
+                int a = warList.get(i)[0];
+                int b = warList.get(i)[1];
+                if (i==0){
+                    removeBridge = b - 1;
+                    result ++;
+                }else if(a > removeBridge){
+                    removeBridge = b-1;
+                    result ++;
+                }
+            }
+            out.println(result);
         }
     }
 
