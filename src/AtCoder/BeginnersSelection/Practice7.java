@@ -1,12 +1,11 @@
-package AtCoder;
+package AtCoder.BeginnersSelection;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class Main {
+public class Practice7 {
+
     public static void main(String[] args) {
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
@@ -18,6 +17,19 @@ public class Main {
 
     static class Task {
         public void solve(Scanner sc, PrintWriter out) {
+            int N = nint(sc);
+            List<Integer> aList = getIntegerList(sc, N);
+            aList = aList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+            int Alice = 0;
+            int Bob = 0;
+            for (int i = 0; i<N; i++){
+                if (i==0 || i % 2 == 0){
+                    Alice += aList.get(i);
+                }else {
+                    Bob += aList.get(i);
+                }
+            }
+            out.println(Alice - Bob);
         }
     }
 
@@ -56,6 +68,13 @@ public class Main {
         }
         return iLine;
     }
+    static List<Integer> getIntegerList(Scanner sc, int size) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            list.add(nint(sc));
+        }
+        return list;
+    }
 
     static String[] strLine(Scanner sc, int size) {
         String[] strLine = new String[size];
@@ -91,19 +110,4 @@ public class Main {
         return sum;
     }
 
-    static List<Integer> getIntegerList(Scanner sc, int size) {
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            list.add(nint(sc));
-        }
-        return list;
-    }
-
-    static List<Long> getLongList(Scanner sc, int size) {
-        List<Long> list = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            list.add(nlong(sc));
-        }
-        return list;
-    }
 }
