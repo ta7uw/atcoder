@@ -1,4 +1,4 @@
-package com.functionalprograming.chapter4;
+package FunctionalPrograming.chapter4;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;

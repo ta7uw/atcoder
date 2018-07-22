@@ -1,4 +1,4 @@
-package com.functionalprograming.chapter4;
+package FunctionalPrograming.chapter4;
 
 public class Asset {
     public enum AssetType {BOND, STOCK}

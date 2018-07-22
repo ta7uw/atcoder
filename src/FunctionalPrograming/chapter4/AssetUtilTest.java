@@ -1,4 +1,4 @@
-package com.functionalprograming.chapter4;
+package FunctionalPrograming.chapter4;
 
 import org.junit.Assert;
 import org.junit.Test;

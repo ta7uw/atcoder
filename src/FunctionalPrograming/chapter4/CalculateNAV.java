@@ -1,4 +1,4 @@
-package com.functionalprograming.chapter4;
+package FunctionalPrograming.chapter4;
 
 import java.math.BigDecimal;
 import java.util.function.Function;

@@ -1,4 +1,4 @@
-package com.functionalprograming.chapter4;
+package FunctionalPrograming.chapter4;
 
 import java.awt.*;
 import java.util.function.Function;
