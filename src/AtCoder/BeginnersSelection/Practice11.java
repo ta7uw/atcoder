@@ -1,3 +1,5 @@
+package AtCoder.BeginnersSelection;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -16,6 +18,36 @@ public class Practice11{
 
     static class Task {
         public void solve(Scanner sc, PrintWriter out) {
+            int N = nint(sc);
+            List<List<Integer>> route = new ArrayList<>();
+            for (int i = 0; i < N; i++) {
+                List<Integer> line =getIntegerList(sc, 3);
+                route.add(line);
+            }
+            int dt;
+            int t = 0;
+            int x = 0;
+            int y = 0;
+            int dist = 0;
+            boolean canTravlel = true;
+            for (List<Integer> plan: route) {
+                dt = plan.get(0) - t;
+                dist = Math.abs(plan.get(1)-x) + Math.abs(plan.get(2)-y);
+                t = plan.get(0);
+                x = plan.get(1);
+                y = plan.get(2);
+                if (dist>dt){
+                    canTravlel = false;
+                    break;
+                }
+                if (dist % 2 != dt % 2){
+                    canTravlel = false;
+                    break;
+                }
+
+            }
+            out.println(canTravlel? "Yes" : "No");
+
         }
     }
 
