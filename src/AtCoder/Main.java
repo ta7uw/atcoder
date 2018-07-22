@@ -1,6 +1,8 @@
 package AtCoder;
 
 import java.io.PrintWriter;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -52,5 +54,12 @@ public class Main {
             strLine[i] = nstr(sc);
         }
         return strLine;
+    }
+
+    static long maxFromList(List<Long> longList){
+        return longList.stream().max(Comparator.naturalOrder()).get();
+    }
+    static long minFromList(List<Long> longList){
+        return longList.stream().min(Comparator.naturalOrder()).get();
     }
 }

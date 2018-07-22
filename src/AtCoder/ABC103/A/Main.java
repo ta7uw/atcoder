@@ -16,12 +16,9 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            int sum  = 0;
             int[] nint = intLine(sc, 3);
             Arrays.sort(nint);
-
             out.println(nint[2]-nint[0]);
-
         }
     }
 

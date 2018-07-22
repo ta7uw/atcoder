@@ -2,6 +2,7 @@ package AtCoder.ABC103.D;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,19 +19,17 @@ public class Main {
         public void solve(Scanner sc, PrintWriter out){
             int N = nint(sc);
             int M = nint(sc);
-            List<Integer[]> list = new ArrayList<>();
+            List<Integer[]> warList = new ArrayList<>();
             for (int i=0; i<M; i++){
                 int a = nint(sc);
                 int b = nint(sc);
-                Integer[] ab = new Integer[2];
-                ab[0] = a;
-                ab[1] = b;
-                list.add(ab);
+                Integer[] ab = {a, b};
+                warList.add(ab);
             }
+            warList.stream()
+                    .sorted(Comparator.comparing(x -> x[1]));
 
         }
-
-
     }
 
     static int nint(Scanner sc){
