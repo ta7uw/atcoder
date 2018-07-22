@@ -1,11 +1,12 @@
-package AtCoder;
+package AtCoder.BeginnersSelection;
 
-        import java.io.PrintWriter;
-        import java.util.Comparator;
-        import java.util.List;
-        import java.util.Scanner;
 
-public class Main {
+import java.io.PrintWriter;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class Practice6 {
     public static void main(String[] args){
         PrintWriter out = new PrintWriter(System.out);
         Scanner sc = new Scanner(System.in);
@@ -16,6 +17,22 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
+            int N = nint(sc);
+            int A = nint(sc);
+            int B = nint(sc);
+            int result = 0;
+            for (int i = 1; i<=N; i++ ){
+                int sum = 0;
+                int tmp = i;
+                while(tmp!=0){
+                    sum += tmp %10;
+                    tmp /= 10;
+                }
+                if (A <= sum && sum <= B){
+                    result += i;
+                }
+            }
+            out.println(result);
         }
     }
 
@@ -61,21 +78,5 @@ public class Main {
     }
     static long minFromList(List<Long> longList){
         return longList.stream().min(Comparator.naturalOrder()).get();
-    }
-    public static int sumDigits(int n) {
-        int sum = 0;
-        while (n != 0) {
-            sum += n % 10;
-            n /= 10;
-        }
-        return sum;
-    }
-    public static long sumDigits(long n) {
-        long sum = 0;
-        while (n != 0) {
-            sum += n % 10;
-            n /= 10;
-        }
-        return sum;
     }
 }
