@@ -23,4 +23,4 @@ for a in a_list:
         color_set.add("red")
     else:
         all += 1
-print(len(color_set), min(all+len(color_set), 8))
+print(max(len(color_set),1), all+len(color_set))
