@@ -1,6 +1,6 @@
 def is_prime(num):
     """
-    This function checks whether the input positive integer is a prime number.
+    This function checks whether the input natural number larger than 1 is a prime number.
     :param num:
     :return: boolean
     """
