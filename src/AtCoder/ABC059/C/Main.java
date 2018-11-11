@@ -1,3 +1,5 @@
+package ABC059.C;
+
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.*;
@@ -26,19 +28,19 @@ public class Main {
             // even +1
             for (int i = 0; i < n; i++) {
                 sum += aList.get(i);
-                if (i%2 == 0){
-                    if (sum>0){
+                if (i % 2 == 0) {
+                    if (sum > 0) {
                         continue;
-                    }else {
-                        margin = Math.abs(sum)+1;
+                    } else {
+                        margin = Math.abs(sum) + 1;
                         result1 += margin;
                         sum = 1;
                     }
-                }else {
-                    if (sum<0){
+                } else {
+                    if (sum < 0) {
                         continue;
-                    }else {
-                        margin = Math.abs(sum)+1;
+                    } else {
+                        margin = Math.abs(sum) + 1;
                         result1 += margin;
                         sum = -1;
                     }
@@ -48,19 +50,19 @@ public class Main {
             // even -1
             for (int i = 0; i < n; i++) {
                 sum += aList.get(i);
-                if (i%2 == 0){
-                    if (sum<0){
+                if (i % 2 == 0) {
+                    if (sum < 0) {
                         continue;
-                    }else {
-                        margin = Math.abs(sum)+1;
+                    } else {
+                        margin = Math.abs(sum) + 1;
                         result2 += margin;
                         sum = -1;
                     }
-                }else {
-                    if (sum>0){
+                } else {
+                    if (sum > 0) {
                         continue;
-                    }else {
-                        margin = Math.abs(sum)+1;
+                    } else {
+                        margin = Math.abs(sum) + 1;
                         result2 += margin;
                         sum = 1;
                     }

@@ -1,3 +1,4 @@
+package ABC059.A;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;

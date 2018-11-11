@@ -1,3 +1,6 @@
+package ABC061.B;
+
+
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;

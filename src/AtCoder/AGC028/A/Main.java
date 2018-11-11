@@ -1,3 +1,6 @@
+package AGC028.A;
+
+
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.*;
