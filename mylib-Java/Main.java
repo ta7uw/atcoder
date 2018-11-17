@@ -1,8 +1,6 @@
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,10 +14,14 @@ public class Main {
 
     static class Task {
         public void solve(Scanner sc, PrintWriter out) {
+
         }
     }
 
+
     static int nint(Scanner sc) {
+
+
         return Integer.parseInt(sc.next());
     }
 
@@ -36,7 +38,7 @@ public class Main {
     }
 
     static String nstr(Scanner sc) {
-        return String.valueOf(sc.next());
+        return sc.next();
     }
 
     static long[] longLine(Scanner sc, int size) {
@@ -104,4 +106,21 @@ public class Main {
         }
         return list;
     }
+
+    static List<String> getStringList(Scanner sc, int size){
+        List<String> stringList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            stringList.add(nstr(sc));
+        }
+        return stringList;
+    }
+
+    private static long lcm(long a, long b) {
+        return a * b / gcd(b, a % b);
+    }
+
+    private static long gcd(long a, long b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
 }
+
