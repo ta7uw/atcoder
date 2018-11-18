@@ -21,14 +21,14 @@ def _prime_factorize(num):
     i = 2
     while i ** 2 <= num:
         while num % i == 0:
-            num /= i
+            num //= i
             if i in prime_factor.keys():
                 prime_factor[i] += 1
             else:
                 prime_factor[i] = 1
         i += 1
     if num > 1:
-        prime_factor[num] += 1
+        prime_factor[num] = 1
     return prime_factor
 
 
