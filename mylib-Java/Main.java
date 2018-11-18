@@ -122,5 +122,25 @@ public class Main {
     private static long gcd(long a, long b) {
         return b == 0 ? a : gcd(b, a % b);
     }
+    private static Map<Integer, Integer> primeFactorize(long num) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int i = 2;
+        while (i * i <= num) {
+            while (num % i == 0) {
+                num /= i;
+                if (map.containsKey(i)) {
+                    int tmp = map.get(i);
+                    tmp++;
+                    map.put(i, tmp);
+                } else {
+                    map.put(i, 1);
+                }
+            }
+            i ++;
+        }
+        if (num > 1)
+            map.put((int) num, 1);
+     return map;
+    }
 }
 
