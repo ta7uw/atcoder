@@ -6,9 +6,9 @@ I have published the code for study record and review for myself.
 
 ## The Programing Language
 
-* Python
 * Java
 * Go
+* Python
 
 ## Date of First Participation in the AtCoder
 2018/06/23 	
