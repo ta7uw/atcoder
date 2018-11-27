@@ -140,40 +140,33 @@ public class Main {
         }
         if (num > 1)
             map.put((int) num, 1);
-     return map;
+        return map;
     }
-     /**
-   * Returns the most frequent value in the list. リスト内で最頻出数値を返します。
-   *
-   * @param list List
-   * @return most frequent value
-   */
-  private static Integer mode(List<Integer> list) {
-    if (list.size() <= 0) {
-      throw new IllegalArgumentException();
+    /**
+     * Returns the most frequent value in the list. リスト内で最頻出数値を返します。
+     *
+     * @param list List
+     * @return most frequent value
+     */
+    private static Integer getMode(List<Integer> list) {
+        if (list.size() <= 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Map<Integer, Integer> modeMap = new HashMap<>();
+
+        for (Integer x : list) {
+            if (modeMap.containsKey(x)) {
+                modeMap.put(x, modeMap.get(x) + 1);
+            } else {
+                modeMap.put(x, 1);
+            }
+        }
+        return modeMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getKey();
+
     }
-
-    Map<Integer, Integer> modeMap = new HashMap<>();
-
-    for (Integer x : list) {
-      if (modeMap.containsKey(x)) {
-        modeMap.put(x, modeMap.get(x) + 1);
-      } else {
-        modeMap.put(x, 1);
-      }
-    }
-
-    int maxValue = 0;
-    int maxKey = 0;
-
-    for (Map.Entry<Integer, Integer> entry : modeMap.entrySet()) {
-      if (maxValue < entry.getValue()) {
-        maxValue = entry.getValue();
-        maxKey = entry.getKey();
-      }
-    }
-
-    return maxKey;
-  }
 }
 
