@@ -19,5 +19,3 @@ for i in range(n):
         frame = i
  
 print(frame)
-
-
