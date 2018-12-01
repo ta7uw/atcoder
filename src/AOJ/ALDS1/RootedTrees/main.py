@@ -44,8 +44,8 @@ for i in range(n):
 set_depth(root, 0)
 for i in range(n):
     print("node " + str(i) + ":", end=" ")
-    print("parent = " + str(parents[i])+ ",", end=" ")
-    print("depth = " + str(depth[i])+ ",", end=" ")
+    print("parent = " + str(parents[i]) + ",", end=" ")
+    print("depth = " + str(depth[i]) + ",", end=" ")
 
     if parents[i] == -1:
         print("root,", end=" ")
