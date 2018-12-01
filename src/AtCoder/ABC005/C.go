@@ -27,33 +27,29 @@ func main() {
 	bList := getIntSlice(M)
 
 	flag := false
-	for i:=0; i < M ;i++  {
+	for i := 0; i < M; i++ {
 		b := bList[i]
-		if len(aList) <1 {
+		if len(aList) < 1 {
 			flag = false
 		}
-		for len(aList) >= 1{
+		for len(aList) >= 1 {
 			a := aList[0]
 			aList = aList[1:]
-			if a + T >= b && b >= a{
+			if a+T >= b && b >= a {
 				flag = true
 				break
-			}else{
+			} else {
 				flag = false
 			}
 		}
 
-
 	}
-	if flag{
+	if flag {
 		fmt.Println("yes")
-	}else{
+	} else {
 		fmt.Println("no")
 	}
 }
-
-
-
 
 func newReadString(ior io.Reader) func() string {
 	r := bufio.NewScanner(ior)
