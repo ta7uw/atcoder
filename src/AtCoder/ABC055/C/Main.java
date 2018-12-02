@@ -1,3 +1,6 @@
+package ABC055.C;
+
+
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -1,3 +1,6 @@
+package ABC062.A;
+
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;

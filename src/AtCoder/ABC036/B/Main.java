@@ -1,3 +1,5 @@
+package ABC036.B;
+
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.*;

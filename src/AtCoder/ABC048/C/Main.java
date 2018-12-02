@@ -1,3 +1,5 @@
+package ABC048.C;
+
 import java.awt.*;
 import java.io.PrintWriter;
 import java.util.*;

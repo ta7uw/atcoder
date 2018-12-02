@@ -1,3 +1,5 @@
+package ABC030.B;
+
 import java.io.PrintWriter;
 import java.util.*;
  
