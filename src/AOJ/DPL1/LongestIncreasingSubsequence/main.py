@@ -13,7 +13,7 @@ def lis(n, A):
             L[length] = A[i]
             length += 1
         else:
-            index = bisect.bisect_left(L, A[i], 0, length - 1)
+            index = bisect.bisect_left(L, A[i], 0, length)
             L[index] = A[i]
     return length
 
