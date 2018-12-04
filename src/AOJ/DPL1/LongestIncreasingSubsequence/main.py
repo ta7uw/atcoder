@@ -5,7 +5,7 @@ a_list = [int(input()) for i in range(n)]
 
 
 def lis(n, A):
-    L = [100 for i in range(n + 1)]
+    L = [0 for i in range(n + 1)]
     L[0] = A[0]
     length = 1
     for i in range(1, n):
