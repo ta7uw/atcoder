@@ -1,4 +1,4 @@
-package AtCoder.ABC90.Q3;
+package ABC090.A;
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -14,20 +14,15 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            long N = nlong(sc);
-            long M = nlong(sc);
+            String str1 = nstr(sc);
+            String str2 = nstr(sc);
+            String str3 = nstr(sc);
 
-            if (N >=2 && M >= 2){
-                out.println((N-2)*(M-2));
-            }else if (N == 1 && M !=1 ){
-                out.println(M-2);
-            }else if (N !=1 && M == 1){
-                out.println(N-2);
-            }else {
-                out.println(1);
-            }
-
-
+            StringBuilder sb = new StringBuilder();
+            sb.append(str1.charAt(0));
+            sb.append(str2.charAt(1));
+            sb.append(str3.charAt(2));
+            out.println(sb.toString());
 
         }
     }

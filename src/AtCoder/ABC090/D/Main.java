@@ -1,4 +1,4 @@
-package AtCoder.ABC90.Q1;
+package ABC090.D;
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -14,15 +14,22 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            String str1 = nstr(sc);
-            String str2 = nstr(sc);
-            String str3 = nstr(sc);
+            long N = nlong(sc);
+            long K = nlong(sc);
 
-            StringBuilder sb = new StringBuilder();
-            sb.append(str1.charAt(0));
-            sb.append(str2.charAt(1));
-            sb.append(str3.charAt(2));
-            out.println(sb.toString());
+            if (K==0){
+                out.println(N*N);
+            }else{
+                long count=0;
+                for (long b = K+1; b <= N; b++){
+                    long p = N / b;
+                    long r = N - p * b;
+
+                    count += p * Math.max(0, b - K);
+                    count += Math.max(0, r - K + 1);
+                }
+                out.println(count);
+            }
 
         }
     }

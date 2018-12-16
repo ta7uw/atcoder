@@ -1,5 +1,4 @@
-package AtCoder.ABC90.Q2;
-
+package ABC090.C;
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -15,23 +14,21 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            int first = nint(sc);
-            int last = nint(sc);
-            int count=0;
-            for (int i = first; i <= last; i++){
-                String num = String.valueOf(i);
-                int strLength = num.length();
-                boolean circle = true;
-                for (int j=0; j<strLength/2; j++){
-                    if (num.charAt(j) != num.charAt(strLength-j-1)){
-                        circle = false;
-                    }
-                }
-                if (circle){
-                    count++;
-                }
+            long N = nlong(sc);
+            long M = nlong(sc);
+
+            if (N >=2 && M >= 2){
+                out.println((N-2)*(M-2));
+            }else if (N == 1 && M !=1 ){
+                out.println(M-2);
+            }else if (N !=1 && M == 1){
+                out.println(N-2);
+            }else {
+                out.println(1);
             }
-            out.println(count);
+
+
+
         }
     }
 

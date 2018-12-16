@@ -1,4 +1,5 @@
-package AtCoder.ABC90.Q4;
+package ABC090.B;
+
 
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -14,23 +15,23 @@ public class Main {
     }
     static class Task{
         public void solve(Scanner sc, PrintWriter out){
-            long N = nlong(sc);
-            long K = nlong(sc);
-
-            if (K==0){
-                out.println(N*N);
-            }else{
-                long count=0;
-                for (long b = K+1; b <= N; b++){
-                    long p = N / b;
-                    long r = N - p * b;
-
-                    count += p * Math.max(0, b - K);
-                    count += Math.max(0, r - K + 1);
+            int first = nint(sc);
+            int last = nint(sc);
+            int count=0;
+            for (int i = first; i <= last; i++){
+                String num = String.valueOf(i);
+                int strLength = num.length();
+                boolean circle = true;
+                for (int j=0; j<strLength/2; j++){
+                    if (num.charAt(j) != num.charAt(strLength-j-1)){
+                        circle = false;
+                    }
                 }
-                out.println(count);
+                if (circle){
+                    count++;
+                }
             }
-
+            out.println(count);
         }
     }
 
