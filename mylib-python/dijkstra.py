@@ -16,6 +16,8 @@ class Dijkstra:
         dist[self.start_point] = 0
         heap_q = []
         heapq.heappush(heap_q, (0, self.start_point))
+        route_count = [0 for _ in range(n)]
+        route_count[self.start_point] = 1
         while len(heap_q) != 0:
             prov_cost, src = heapq.heappop(heap_q)
 
@@ -27,10 +29,13 @@ class Dijkstra:
                     dist[dest] = dist[src] + cost
                     heapq.heappush(heap_q, (dist[dest], dest))
                     prev[dest] = src
+                if dist[dest] == dist[src] + cost:
+                    route_count[dest] += route_count[src]
+
         if self.goal_point is not None:
             return self._get_path(self.goal_point, prev)
         else:
-            return dist
+            return dist, route_count
 
     def _get_path(self, goal, prev):
         path = [goal]
