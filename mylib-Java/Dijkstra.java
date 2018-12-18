@@ -71,7 +71,6 @@ public class Dijkstra {
 
                 if (dist[dest] == dist[src] + cost) {
                     this.routeCount[dest] += this.routeCount[src];
-                    this.routeCount[dest] %= 1000000007;
                 }
 
             }
