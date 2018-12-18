@@ -19,9 +19,9 @@ class Dijkstra:
         route_count = [0 for _ in range(num_of_city)]
         route_count[self.start_point] = 1
         while len(heap_q) != 0:
-            prov_cost, src = heapq.heappop(heap_q)
+            prev_cost, src = heapq.heappop(heap_q)
 
-            if dist[src] < prov_cost:
+            if dist[src] < prev_cost:
                 continue
 
             for dest, cost in self.rote_map[src].items():
