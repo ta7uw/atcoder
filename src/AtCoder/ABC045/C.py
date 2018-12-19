@@ -11,15 +11,6 @@ for i in range(2**(len(s)-1)):
         if b[j] == "1":
             tmp.insert(-j-1, "+")
 
-    before = ""
-    num = 0
-    for x in range(len(tmp)):
-        if tmp[x] == "+":
-            num += int(before)
-            before = ""
-        else:
-            before += tmp[x]
-    if len(before) != 0:
-        num += int(before)
-    result += num
+
+    result += eval("".join(tmp))
 print(result)
