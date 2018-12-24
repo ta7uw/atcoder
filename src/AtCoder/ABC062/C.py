@@ -1,7 +1,7 @@
 H, W = map(int, input().split())
 
 result = []
-for h in range(1, H):
+for h in range(1, H//2+1):
     Sa = W * h
 
     remain = H - h
@@ -15,7 +15,7 @@ for h in range(1, H):
     Sc2 = (W - w) * remain
     result.append(max(Sa, Sb2, Sc2) - min(Sa, Sb2, Sc2))
 
-for w in range(1, W):
+for w in range(1, W//2+1):
     Sa = H * w
 
     remain = W - w
