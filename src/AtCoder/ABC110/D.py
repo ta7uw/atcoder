@@ -21,36 +21,21 @@ def prime_factorize(num):
     return prime_factor
 
 
-from math import factorial
-
-
-def comb(n, r, R):
-    if n not in R:
-        a = factorial(n)
-        R[n] = a
-    else:
-        a = R[n]
-
-    if n - r not in R:
-        b = factorial(n - r)
-        R[n - r] = b
-    else:
-        b = R[n - r]
-
-    if r not in R:
-        c = factorial(r)
-        R[r] = c
-    else:
-        c = R[r]
-    return a // (b * c)
+def combination(n, r):
+    r = min(n - r, r)
+    result = 1
+    for i in range(n, n - r, -1):
+        result *= i
+    for i in range(1, r + 1):
+        result //= i
+    return result
 
 
 n, m = map(int, input().split())
 r = 1
 
-R = dict()
 prime_fac = prime_factorize(m)
 for v in prime_fac.values():
-    r *= comb(v + n - 1, v, R)
+    r *= combination(v + n - 1, v)
 mod = 1000000000 + 7
 print(r % mod)
