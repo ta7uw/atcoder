@@ -1,6 +1,5 @@
 package ABC015.D;
 
-import java.awt.image.Kernel;
 import java.io.PrintWriter;
 import java.util.*;
 
