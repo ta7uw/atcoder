@@ -1,7 +1,8 @@
-package ABC058.C;
+package ABC015.D;
+
+import java.awt.image.Kernel;
 import java.io.PrintWriter;
 import java.util.*;
-import java.util.List;
 
 
 public class Main {
@@ -15,75 +16,42 @@ public class Main {
     }
 
     static class Task {
-        public void solve(Scanner sc, PrintWriter out){
+        public void solve(Scanner sc, PrintWriter out) {
+            int w = nint(sc);
             int n = nint(sc);
-            List<String> sList = getStringList(sc, n);
-            Map<Character, Integer> map = new HashMap<>();
+            int k = nint(sc);
+            int[] aArr = new int[n];
+            int[] bArr = new int[n];
             for (int i = 0; i < n; i++) {
-                char[] s = sList.get(i).toCharArray();
-                if (i==0){
-                    for (int j = 0; j < s.length; j++) {
-                        char c = s[j];
-                        if (map.containsKey(c)){
-                            int tmp = map.get(c);
-                            tmp ++;
-                            map.put(c, tmp);
-                        }else{
-                            map.put(c, 1);
-                        }
-                    }
-                }else{
-                    Map<Character, Integer> tmpMap = new HashMap<>();
-                    for (int j = 0; j < s.length; j++) {
-                        char c = s[j];
-                        if (tmpMap.containsKey(c)){
-                            int tmp = tmpMap.get(c);
-                            tmp ++;
-                            tmpMap.put(c, tmp);
-                        }else{
-                            tmpMap.put(c ,1);
-                        }
-                    }
-                    for (Map.Entry<Character, Integer> e : map.entrySet()){
-                        Character x = e.getKey();
-                        Integer mC = tmpMap.get(x);
-                        if (mC == null){
-                            continue;
-                        }
-                        if (mC >= e.getValue()){
-                            tmpMap.put(x, e.getValue());
-                        }else {
-                            tmpMap.put(x, mC);
+                aArr[i] = nint(sc);
+                bArr[i] = nint(sc);
+
+            }
+
+            int[][][] dp = new int[n + 1][k + 1][w + 1];
+            int a, b;
+            for (int i = 1; i <= n; i++) {
+                a = aArr[i - 1];
+                b = bArr[i - 1];
+                for (int j = 1; j <= k; j++) {
+                    for (int l = 0; l <= w; l++) {
+                        if (l - a < 0) {
+                            dp[i][j][l] = dp[i - 1][j][l];
+                        } else {
+                            dp[i][j][l] = Math.max(dp[i - 1][j][l], dp[i - 1][j - 1][l - a] + b);
                         }
 
                     }
-                    HashMap<Character, Integer> tmpMap2 = new HashMap<>(tmpMap);
-                    for (Map.Entry<Character, Integer> e : tmpMap2.entrySet()){
-                        Character x = e.getKey();
-                        if (map.containsKey(x)){
-                            continue;
-                        }else{
-                            tmpMap.remove(x);
-                        }
-
-                    }
-                    map = new HashMap<>(tmpMap);
                 }
             }
-            String r = "";
-            for (Map.Entry<Character, Integer> e : map.entrySet()) {
-                for (int i = 0; i < e.getValue(); i++) {
-                    r += String.valueOf(e.getKey());
-                }
-            }
-            char[] R = r.toCharArray();
-            Arrays.sort(R);
-            out.println(String.valueOf(R));
+            out.println(dp[n][k][w]);
         }
     }
 
 
     static int nint(Scanner sc) {
+
+
         return Integer.parseInt(sc.next());
     }
 
@@ -169,7 +137,7 @@ public class Main {
         return list;
     }
 
-    static List<String> getStringList(Scanner sc, int size){
+    static List<String> getStringList(Scanner sc, int size) {
         List<String> stringList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             stringList.add(nstr(sc));
@@ -184,6 +152,7 @@ public class Main {
     private static long gcd(long a, long b) {
         return b == 0 ? a : gcd(b, a % b);
     }
+
     private static Map<Integer, Integer> primeFactorize(long num) {
         Map<Integer, Integer> map = new HashMap<>();
         int i = 2;
@@ -198,10 +167,38 @@ public class Main {
                     map.put(i, 1);
                 }
             }
-            i ++;
+            i++;
         }
         if (num > 1)
             map.put((int) num, 1);
         return map;
     }
+
+    /**
+     * Returns the most frequent value in the list. リスト内で最頻出数値を返します。
+     *
+     * @param list List
+     * @return most frequent value
+     */
+    private static Integer getMode(List<Integer> list) {
+        if (list.size() <= 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Map<Integer, Integer> modeMap = new HashMap<>();
+
+        for (Integer x : list) {
+            if (modeMap.containsKey(x)) {
+                modeMap.put(x, modeMap.get(x) + 1);
+            } else {
+                modeMap.put(x, 1);
+            }
+        }
+        return modeMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .get()
+                .getKey();
+
+    }
 }
+
