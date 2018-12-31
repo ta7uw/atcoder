@@ -14,4 +14,4 @@ I have published the code for study record and review for myself.
 2018/06/23 	
 
 ## Goal 
-Rating 1200(Light Blue Coder) during 2018
+Rating 1600(Blue Coder) during 2019
