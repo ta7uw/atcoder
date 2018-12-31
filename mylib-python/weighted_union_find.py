@@ -16,12 +16,13 @@ class WeightedUnionFind:
     def union(self, x, y, w):
         rx = self.find(x)
         ry = self.find(y)
+
         if self.rank[rx] < self.rank[ry]:
             self.parent[rx] = ry
-            self.weight = w - self.weight[x] + self.weight[y]
+            self.weight[rx] = w - self.weight[x] + self.weight[y]
         else:
             self.parent[ry] = rx
-            self.weight[ry] = w - self.weight[y] + self.weight[x]
+            self.weight[ry] = -w - self.weight[y] + self.weight[x]
             if self.rank[rx] == self.rank[ry]:
                 self.rank[rx] += 1
 
