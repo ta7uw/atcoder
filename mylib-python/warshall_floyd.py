@@ -6,3 +6,8 @@ def warshall_floyd(graph):
                 if graph[i][j] > graph[i][k] + graph[k][j]:
                     graph[i][j] = graph[i][k] + graph[k][j]
     return graph
+
+"""
+from scipy.sparse.csgraph import floyd_warshall
+w_graph = floyd_warshall(graph, directed=False)
+"""
