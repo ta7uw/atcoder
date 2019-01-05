@@ -15,12 +15,12 @@ blue_sum = [sum(blue_list)]
 for i in range(N, 2 * N):
     heapq.heappush(red_list, a_list[i])
     item = heapq.heappop(red_list)
-    red_sum.append(max(red_sum[-1], red_sum[-1] + a_list[i] - item))
+    red_sum.append(red_sum[-1] + a_list[i] - item)
 
 for i in range(2 * N - 1, N - 1, -1):
     heapq.heappush(blue_list, -a_list[i])
     item = heapq.heappop(blue_list)
-    blue_sum.append(max(blue_sum[-1], blue_sum[-1] - a_list[i] - item))
+    blue_sum.append(blue_sum[-1] - a_list[i] - item)
 
 for i in range(N+1):
     score = red_sum[i] + blue_sum[-(i + 1)]
