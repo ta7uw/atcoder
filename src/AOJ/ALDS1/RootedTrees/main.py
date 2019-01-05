@@ -1,8 +1,11 @@
+import sys
+
 n = int(input())
 node_list = []
 
+sys.setrecursionlimit(10 ** 8)
 for i in range(n):
-    node_list.append(list(map(int, input().split())))
+    node_list.append(list(map(int, sys.stdin.readline().split())))
 
 parents = [-1 for i in range(n)]
 right = [None for i in range(n)]
@@ -38,6 +41,7 @@ for i in range(n):
             right[m] = node[2 + j]
         m = node[2 + j]
         parents[node[2 + j]] = v
+root = -1
 for i in range(n):
     if parents[i] == -1:
         root = i
