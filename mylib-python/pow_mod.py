@@ -1,6 +1,7 @@
 def pow_mod(n, k, mod):
     """
     Exponentiation by squaring
+    https://atcoder.jp/contests/atc002/tasks/atc002_b
     :return: n ** k
     """
 
