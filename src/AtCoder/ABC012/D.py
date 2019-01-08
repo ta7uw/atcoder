@@ -1,0 +1,20 @@
+from scipy.sparse.csgraph import floyd_warshall
+
+N, M = map(int, input().split())
+inf = float("inf")
+graph = [[inf for _ in range(N)] for _ in range(N)]
+for i in range(M):
+    a, b, t = map(int, input().split())
+    graph[a - 1][b - 1] = t
+    graph[b - 1][a - 1] = t
+graph = floyd_warshall(graph)
+ans = inf
+for i in range(N):
+    max_num = 0
+    for j in range(N):
+        if i == j:
+            continue
+        if graph[i][j] > max_num:
+            max_num = graph[i][j]
+    ans = min(max_num, ans)
+print(int(ans))
