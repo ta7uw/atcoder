@@ -13,7 +13,7 @@ dp = [0 for _ in range(N)]
 
 
 def dfs(u):
-    if dp[u] != 0:
+    if dp[u] != 0 or len(graph[u]) == 0:
         return dp[u]
     max_dis = 0
     for f in graph[u].keys():
