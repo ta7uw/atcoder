@@ -25,13 +25,12 @@ while len(queue) != 0:
         if in_cnt[v2] == 0:
             queue.append(v2)
 
-order = [i + 1 for i, v in sorted(enumerate(sorted_ans), key=lambda x: x[1])]
-order = [0] + order
+order = [0] + [i + 1 for i, v in sorted(enumerate(sorted_ans), key=lambda x: x[1])]
 ans = [0] * (N + 1)
-ans[sorted_ans[sorted_ans[0]] + 1] = 0
+ans[sorted_ans[0] + 1] = 0
 
 for v in sorted_ans[:0:-1]:
     ans[v] = max((order[v2], v2) for v2 in rev[v])[1]
-ans.pop(0)
-for a in ans:
+
+for a in ans[1:]:
     print(a)
