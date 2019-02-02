@@ -1,7 +1,10 @@
-package MinnanoProCon2018.B;
+package MinnanoProConY2018.A;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,13 +18,14 @@ public class Main {
 
     static class Task {
         void solve(Scanner sc, PrintWriter out) {
-            int x = nint(sc);
-            int k = nint(sc);
-            int tmp = 1;
-            for (int i = 0; i < k; i++) {
-                tmp *= 10;
+            String S = nstr(sc);
+            char[] s = S.toCharArray();
+            if (s[0] == 'y' && s[1] == 'a' && s[2] == 'h' && s[3] == s[4]){
+                out.println("YES");
+            }else{
+                out.println("NO");
             }
-            out.println(((x + tmp) / tmp) * tmp);
+
         }
     }
 
@@ -111,4 +115,3 @@ public class Main {
         return list;
     }
 }
-
