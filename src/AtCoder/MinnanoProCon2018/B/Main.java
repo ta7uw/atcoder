@@ -1,4 +1,4 @@
-package MinnanoProConY2017.A;
+package MinnanoProCon2018.B;
 
 import java.io.PrintWriter;
 import java.util.*;
@@ -15,15 +15,13 @@ public class Main {
 
     static class Task {
         void solve(Scanner sc, PrintWriter out) {
-            String S = nstr(sc);
-            char[] s = S.toCharArray();
-            Arrays.sort(s);
-            if (s[0] == 'a' && s[1] == 'h' && s[2] == 'o' && s[3] == 'o' && s[4] == 'y') {
-                out.println("YES");
-            } else {
-                out.println("NO");
+            int x = nint(sc);
+            int k = nint(sc);
+            int tmp = 1;
+            for (int i = 0; i < k; i++) {
+                tmp *= 10;
             }
-
+            out.println(((x + tmp) / tmp) * tmp);
         }
     }
 
