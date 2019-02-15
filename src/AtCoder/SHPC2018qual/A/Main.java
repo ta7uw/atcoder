@@ -1,5 +1,4 @@
-package SHPC2018_1.B;
-
+package SHPC2018qual.A;
 
 import java.io.PrintWriter;
 import java.util.*;
@@ -16,23 +15,13 @@ public class Main {
 
     static class Task {
         void solve(Scanner sc, PrintWriter out) {
-            int n = nint(sc);
-            int L = nint(sc);
-            int R = nint(sc);
-            List<Integer> aList = getIntegerList(sc, n);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < n; i++) {
-                int a = aList.get(i);
-                if (a < L) {
-                    sb.append(L);
-                } else if (a > R) {
-                    sb.append(R);
-                } else {
-                    sb.append(a);
-                }
-                sb.append(" ");
+            char[] X = nstr(sc).toCharArray();
+            char[] Y = nstr(sc).toCharArray();
+            if (X[0] == 'S' && Y[0] == 'H'){
+                out.println("YES");
+            }else{
+                out.println("NO");
             }
-            out.println(sb);
 
 
         }
