@@ -3,6 +3,7 @@ class UnionFind:
         self.parent = [i for i in range(n + 1)]
         self.rank = [0 for _ in range(n + 1)]
         self.size = [1] * (n + 1)
+        self.group = [[i] for i in range(n + 1)]
 
     def find(self, x):
         # If x is root
@@ -34,3 +35,15 @@ class UnionFind:
 
     def get_size(self, x):
         return self.size[self.find(x)]
+
+    def merge(self, x, y):
+        """
+        "データ構造をマージする一般的なテク"
+        """
+        x = self.find(x)
+        y = self.find(y)
+        if len(self.group[x]) < len(self.group[y]):
+            x, y = y, x
+        self.group[x].extend(self.group[y])
+        self.group[y] = []
+        self.parent[y] = x
