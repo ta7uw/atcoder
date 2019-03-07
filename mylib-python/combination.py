@@ -12,3 +12,8 @@ def combination(n, r):
     for i in range(1, r + 1):
         result //= i
     return result
+
+
+def comb2():
+    # from scipy.misc import comb
+    pass
