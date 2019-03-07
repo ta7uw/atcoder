@@ -21,4 +21,4 @@ class FactMod:
         """
         :return: nCr
         """
-        return self.f[n] * self.inv[n - r] * self.inv[r] % mod
+        return self.f[n] * self.inv[n - r] * self.inv[r] % self.mod
