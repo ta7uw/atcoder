@@ -1,20 +1,18 @@
+from collections import defaultdict
+import string
+
+
 def gcd(a, b):
     if b == 0:
         return a
     return gcd(b, a % b)
 
 
-import sys
-
-sys.setrecursionlimit(10 ** 8)
-
-from collections import defaultdict
-
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet = string.ascii_uppercase
 
 T = int(input())
 
-for k in range(T):
+for t in range(T):
     n, l = map(int, input().split())
     text = tuple(map(int, input().split()))
 
@@ -39,5 +37,5 @@ for k in range(T):
     for p in primes:
         tmp += alphabet_map[p]
 
-    k += 1
-    print("Case #{}: {}".format(k, tmp))
+    t += 1
+    print("Case #{}: {}".format(t, tmp))
