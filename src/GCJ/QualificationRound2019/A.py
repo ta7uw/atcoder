@@ -13,9 +13,6 @@ for t in t_list:
         if s == "4":
             A += "1"
             B += "3"
-        elif s == "0":
-            A += "0"
-            B += "0"
         else:
             A += s
             B += "0"
