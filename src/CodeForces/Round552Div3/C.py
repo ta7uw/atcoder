@@ -4,7 +4,6 @@ D = min(a // 3, b // 2, c // 2)
 A, B, C = a - 3 * D, b - 2 * D, c - 2 * D
 
 ans = D * 7
-
 if A == 0 and C == 0 and B == 0:
     print(ans)
 
@@ -48,9 +47,10 @@ elif C == 1:
             print(ans + 2)
         elif A == 1:
             print(ans + 3)
-
-        else:
+        elif A == 2:
             print(ans + 5)
+        else:
+            print(ans + 6)
 else:
     if B == 0:
         if A == 0:
