@@ -1,38 +1,19 @@
-l, r = map(int, input().split())
-mod = 10 ** 9 + 7
+N = int(input())
+items = []
+for i in range(N):
+    items.append(tuple(map(int, input().split())))
 
+m = {}
+for i, item in enumerate(items):
+    a, b = item
+    m[i] = a - b
 
-def f(x):
-    if x == 0:
-        return 0
-    res = 1
-    cnt = 2
-    f = 1
-    b_s = 2
-    e_s = 4
-    b_f = 3
-    e_f = 9
-    x -= 1
-    while x > 0:
-        if f:
-            res += cnt * (b_s + e_s) // 2
-            b_s = e_s + 2
-            e_s = e_s + 2 * (4 * cnt)
-        else:
-            res += cnt * (b_f + e_f) // 2
-            b_f = e_f + 2
-            e_f = e_f + 2 * (4 * cnt)
-        x -= cnt
-        if x < 0:
-            if f:
-                b_s -= 2
-                res -= abs(x) * (b_s + b_s - abs(x + 1) * 2) // 2
-            else:
-                b_f -= 2
-                res -= abs(x) * (b_f + b_f - abs(x + 1) * 2) // 2
-        cnt *= 2
-        f = 1 - f
-    return res
+m = sorted(m.items(), key=lambda x: -x[1])
 
-
-print((f(r) - f(l - 1)) % mod)
+ans = 0
+i = 0
+for k, _ in m:
+    a, b = items[k]
+    ans += a * i + b * (N - i - 1)
+    i += 1
+print(ans)
