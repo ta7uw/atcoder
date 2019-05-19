@@ -27,8 +27,5 @@ def dfs(i, col):
 
 dfs(0, 1)
 
-# 1 -> 0
-# 2 -> 1
-
 for c in color:
     print(c)
