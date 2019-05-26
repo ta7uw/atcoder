@@ -28,10 +28,6 @@ N, M, K = map(int, input().split())
 mod = 10 ** 9 + 7
 
 NM = N * M
-fa = [1] * (NM + 1)
-
-for i in range(1, NM + 1):
-    fa[i] = (fa[i - 1] * i) % mod
 
 ans = 0
 for i in range(1, N):
