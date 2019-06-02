@@ -17,12 +17,6 @@ class FactMod:
         """
         return self.f[n]
 
-    def comb(self, n, r):
-        """
-        :return: nCr
-        """
-        return self.f[n] * self.inv[n - r] * self.inv[r] % self.mod
-
 
 Q = int(input())
 items = []
@@ -38,15 +32,16 @@ for x, d, n in items:
     elif x == 0:
         print(0)
     else:
+        # d の逆元
         invd = pow(d, mod - 2, mod)
 
+        # x にd^-1をかける
         xd = x * invd % mod
-        limit = mod - xd
-        if n > limit:
+
+        # 10**6が数列に存在しないか
+        if n - 1 + xd >= mod:
             print(0)
             continue
-
-        r = xd + n - 1
-        l = xd - 1
-        tmp = pow(d, n, mod)
-        print(fact_mod.fact(r) * fact_mod.inv[l] * tmp % mod)
+        # 最後にd ** nをかける
+        dn = pow(d, n, mod)
+        print(fact_mod.fact(xd + n - 1) * fact_mod.inv[xd - 1] % mod * dn % mod)
