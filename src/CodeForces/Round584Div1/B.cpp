@@ -35,9 +35,7 @@ void Main() {
         rep(i, N) {
             P p = items[i];
             int s = S[i] - '0';
-            if (t == p.second) {
-                s = 1 - s;
-            } else if (t > p.second) {
+            if (t >= p.second) {
                 int ss = t - p.second;
                 s = 1 - s;
                 if ((ss / p.first) % 2 != 0) {
