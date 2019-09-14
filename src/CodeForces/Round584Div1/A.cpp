@@ -46,31 +46,24 @@ void Main() {
     vector<bool> used(N, false);
     rep(i, N) {
         int a = A[i];
-        bool any = false;
         if (!used[i]){
-            any = true;
             used[i] = true;
-        }else{
-            continue;
-        }
-        rep(j, N) {
-            if (i == j) {
-                continue;
+            rep(j, N) {
+                if (i == j) {
+                    continue;
+                }
+                if (A[j] % a == 0) {
+                    used[j] = true;
+                }
             }
-            if (A[j] % a == 0) {
-                any = true;
-                used[j] = true;
-            }
-        }
-        if (any) {
             ans ++;
-        }
-        bool all = true;
-        rep(j, N) {
-            if (!used[j]) all = false;
-        }
-        if (all) {
-            break;
+            bool all = true;
+            rep(j, N) {
+                if (!used[j]) all = false;
+            }
+            if (all) {
+                break;
+            }
         }
     }
     cout << ans << endl;
