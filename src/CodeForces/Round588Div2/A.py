@@ -1,4 +1,6 @@
 """
+https://codeforces.com/contest/1230/problem/A
+
 配り方を全探索。二人に配るので1人に配る・配らないの2通りにカバンをわける方法と考えてもいい
 """
 a_list = list(map(int, input().split()))
